@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Platform Register</title>
+    <link rel="stylesheet" href="styles.css"> <!-- External CSS -->
+    <style>
+        /* General Body styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            position: relative;
+            height: 100vh;
+            background-color: #1c1c1c;
+        }
+
+        /* Styles for dynamic moving background shapes */
+        .shape {
+            position: absolute;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        /* Dynamic Circle */
+        .circle {
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, #ff6a00, #ffcc00);
+            border-radius: 50%;
+            animation: moveCircle 15s ease-in-out infinite;
+        }
+
+        /* Moving animation for the shapes */
+        @keyframes moveCircle {
+            0% {
+                transform: translateX(-200px) translateY(0);
+            }
+            50% {
+                transform: translateX(100vw) translateY(50vh);
+            }
+            100% {
+                transform: translateX(-200px) translateY(0);
+            }
+        }
+
+        /* Dynamic Hexagon */
+        .hexagon {
+            width: 120px;
+            height: 120px;
+            background-color: #7b41ff;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            animation: moveHexagon 20s ease-in-out infinite;
+        }
+
+        @keyframes moveHexagon {
+            0% {
+                transform: translateX(-200px) translateY(0);
+            }
+            50% {
+                transform: translateX(90vw) translateY(60vh);
+            }
+            100% {
+                transform: translateX(-200px) translateY(0);
+            }
+        }
+
+        /* Register Container */
+        .register-container {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            width: 350px;
+            text-align: center;
+            z-index: 10;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            backdrop-filter: blur(10px);
+        }
+
+        .register-container h1 {
+            font-size: 28px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .register-container input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.7);
+            color: #333;
+            font-size: 16px;
+        }
+
+        .register-container input:focus {
+            outline: none;
+            border: 2px solid #ff6a00;
+        }
+
+        .register-container button {
+            width: 100%;
+            padding: 12px;
+            background: #ff6a00;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .register-container button:hover {
+            background: #ffcc00;
+        }
+
+        .login-link {
+            margin-top: 15px;
+            display: block;
+            color: #FFD700;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .login-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Social Register */
+        .social-register {
+            margin-top: 20px;
+        }
+
+        .social-register button {
+            width: 100%;
+            margin: 5px 0;
+            padding: 12px;
+            font-size: 14px;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .google-register {
+            background: #db4437;
+        }
+
+        .google-register:hover {
+            background: #c1351d;
+        }
+
+        .microsoft-register {
+            background: #0078D7;
+        }
+
+        .microsoft-register:hover {
+            background: #005A9E;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background dynamic shapes -->
+    <div class="shape circle" style="top: 10%; left: 20%;"></div>
+    <div class="shape circle" style="top: 40%; left: 50%;"></div>
+    <div class="shape circle" style="top: 70%; left: 80%;"></div>
+    <div class="shape hexagon" style="top: 20%; left: 10%;"></div>
+    <div class="shape hexagon" style="top: 60%; left: 30%;"></div>
+
+    <!-- Register Form -->
+    <div class="register-container">
+        <h1>Register</h1>
+        <form id="registerForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+            <button type="submit">Register</button>
+            <a href="login.html" class="login-link">Already have an account? Login</a>
+        </form>
+        <div class="social-register">
+            <button class="google-register">Register with Google</button>
+            <button class="microsoft-register">Register with Microsoft</button>
+        </div>
+    </div>
+
+    <script>
+        const registerForm = document.getElementById('registerForm');
+        
+        registerForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (username === "" || email === "" || password === "" || confirmPassword === "") {
+                alert("Please fill in all fields.");
+            } else if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+            } else {
+                alert(`Welcome, ${username}! Registration successful.`);
+            }
+        });
+
+        const googleRegisterButton = document.querySelector('.google-register');
+        const microsoftRegisterButton = document.querySelector('.microsoft-register');
+
+        googleRegisterButton.addEventListener('click', () => {
+            alert('Google registration functionality is under development.');
+        });
+
+        microsoftRegisterButton.addEventListener('click', () => {
+            alert('Microsoft registration functionality is under development.');
+        });
+    </script>
+</body>
+</html>

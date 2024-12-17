@@ -1,0 +1,326 @@
+/* General Body styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(45deg, #FF6B6B, #FFD700, #6A11CB, #2575FC);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+}
+
+/* Keyframe animation for background gradient */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Moving shapes container */
+.moving-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* General shape style */
+.shape {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.5);
+    animation: moveShape 12s infinite ease-in-out, changeSize 5s infinite alternate, rotateShape 8s infinite linear;
+}
+
+@keyframes moveShape {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(100px, 100px);
+    }
+    50% {
+        transform: translate(200px, 0);
+    }
+    75% {
+        transform: translate(100px, -100px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes changeSize {
+    0% {
+        width: 40px;
+        height: 40px;
+    }
+    50% {
+        width: 80px;
+        height: 80px;
+    }
+    100% {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@keyframes rotateShape {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Hexagon Shape Style */
+.hexagon {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.6);
+    position: absolute;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    animation: moveHexagon 12s infinite ease-in-out, changeSize 6s infinite alternate, rotateShape 8s infinite linear;
+}
+
+/* Hexagon Keyframe Animation */
+@keyframes moveHexagon {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(100px, 150px);
+    }
+    50% {
+        transform: translate(200px, -100px);
+    }
+    75% {
+        transform: translate(300px, 50px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* Other Shapes (Square, Circle, etc.) */
+.square {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(0, 255, 255, 0.6);
+    position: absolute;
+    animation: moveSquare 15s infinite ease-in-out, changeSize 4s infinite alternate, rotateShape 6s infinite linear;
+}
+
+@keyframes moveSquare {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(150px, 100px);
+    }
+    50% {
+        transform: translate(250px, 150px);
+    }
+    75% {
+        transform: translate(200px, -200px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 0, 255, 0.5);
+    border-radius: 50%;
+    position: absolute;
+    animation: moveCircle 10s infinite ease-in-out, changeSize 6s infinite alternate, rotateShape 8s infinite linear;
+}
+
+@keyframes moveCircle {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(120px, 180px);
+    }
+    50% {
+        transform: translate(350px, 50px);
+    }
+    75% {
+        transform: translate(200px, -150px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+/* Centered login container */
+.login-container {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    width: 350px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Login container heading */
+.login-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Input styles */
+.login-container input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.7);
+    color: #333;
+    font-size: 16px;
+}
+
+/* Input focus styles */
+.login-container input:focus {
+    outline: none;
+    border: 2px solid #6A11CB;
+}
+
+/* Button styles */
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    background: #2575FC;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+/* Button hover styles */
+.login-container button:hover {
+    background: #6A11CB;
+}
+
+/* Forgot password and register styles */
+.forgot-password {
+    margin-top: 15px;
+    display: block;
+    color: #FFD700;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.register {
+    margin-top: 10px;
+    display: block;
+    color: #00FF7F;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.register:hover {
+    text-decoration: underline;
+}
+
+/* Logo styles */
+.logo {
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 80px;
+    height: auto;
+}
+
+/* Tagline */
+.tagline {
+    font-size: 14px;
+    color: #FFD700;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Toggle options */
+.toggle-options {
+    margin: 15px 0;
+    font-size: 14px;
+    color: #FFD700;
+    cursor: pointer;
+}
+
+.toggle-options:hover {
+    text-decoration: underline;
+}
+
+/* Social login button styles */
+.social-login {
+    margin-top: 20px;
+}
+
+.social-login button {
+    width: 100%;
+    margin: 5px 0;
+    padding: 12px;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.google-login {
+    background: #DB4437;
+}
+
+.google-login:hover {
+    background: #C23321;
+}
+
+.microsoft-login {
+    background: #0078D7;
+}
+
+.microsoft-login:hover {
+    background: #005A9E;
+}
+
+/* Center content within the screen */
+html, body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.login-container {
+    position: relative;
+    z-index: 1;
+}

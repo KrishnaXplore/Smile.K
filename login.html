@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Platform Login</title>
+    <link rel="stylesheet" href="styles.css"> <!-- External CSS -->
+    <style>
+        /* General Body styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            position: relative;
+            height: 100vh;
+            background-color: #1c1c1c;
+        }
+
+        /* Styles for dynamic moving background shapes */
+        .shape {
+            position: absolute;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        /* Dynamic Circle */
+        .circle {
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, #ff6a00, #ffcc00);
+            border-radius: 50%;
+            animation: moveCircle 15s ease-in-out infinite;
+        }
+
+        /* Moving animation for the shapes */
+        @keyframes moveCircle {
+            0% {
+                transform: translateX(-200px) translateY(0);
+            }
+            50% {
+                transform: translateX(100vw) translateY(50vh);
+            }
+            100% {
+                transform: translateX(-200px) translateY(0);
+            }
+        }
+
+        /* Dynamic Hexagon */
+        .hexagon {
+            width: 120px;
+            height: 120px;
+            background-color: #7b41ff;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            animation: moveHexagon 20s ease-in-out infinite;
+        }
+
+        @keyframes moveHexagon {
+            0% {
+                transform: translateX(-200px) translateY(0);
+            }
+            50% {
+                transform: translateX(90vw) translateY(60vh);
+            }
+            100% {
+                transform: translateX(-200px) translateY(0);
+            }
+        }
+
+        /* Login Container */
+        .login-container {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            width: 350px;
+            text-align: center;
+            z-index: 10;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            backdrop-filter: blur(10px);
+        }
+
+        .login-container h1 {
+            font-size: 28px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.7);
+            color: #333;
+            font-size: 16px;
+        }
+
+        .login-container input:focus {
+            outline: none;
+            border: 2px solid #ff6a00;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 12px;
+            background: #ff6a00;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .login-container button:hover {
+            background: #ffcc00;
+        }
+
+        .forgot-password {
+            margin-top: 15px;
+            display: block;
+            color: #FFD700;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        .register {
+            margin-top: 10px;
+            display: block;
+            color: #00FF7F;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .register:hover {
+            text-decoration: underline;
+        }
+
+        /* Social Login */
+        .social-login {
+            margin-top: 20px;
+        }
+
+        .social-login button {
+            width: 100%;
+            margin: 5px 0;
+            padding: 12px;
+            font-size: 14px;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .google-login {
+            background: #db4437;
+        }
+
+        .google-login:hover {
+            background: #c1351d;
+        }
+
+        .microsoft-login {
+            background: #0078D7;
+        }
+
+        .microsoft-login:hover {
+            background: #005A9E;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background dynamic shapes -->
+    <div class="shape circle" style="top: 10%; left: 20%;"></div>
+    <div class="shape circle" style="top: 40%; left: 50%;"></div>
+    <div class="shape circle" style="top: 70%; left: 80%;"></div>
+    <div class="shape hexagon" style="top: 20%; left: 10%;"></div>
+    <div class="shape hexagon" style="top: 60%; left: 30%;"></div>
+
+    <!-- Login Form -->
+    <div class="login-container">
+        <div class="logo">
+            <img src="https://via.placeholder.com/80" alt="Logo">
+        </div>
+        <h1>Welcome Back!</h1>
+        <p class="tagline">India's Most Trusted Education Platform</p>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <div id="passwordField">
+                <input type="password" id="password" placeholder="Password">
+            </div>
+            <div id="otpField" style="display: none;">
+                <input type="text" id="otp" placeholder="Enter OTP">
+            </div>
+            <p class="toggle-options" id="toggleOption">Login using OTP</p>
+            <button type="submit">Login</button>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+            <a href="register.html" class="register">Register</a>
+        </form>
+        <div class="social-login">
+            <button class="google-login">Login using Google Account</button>
+            <button class="microsoft-login">Login using Microsoft Account</button>
+        </div>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const toggleOption = document.getElementById('toggleOption');
+        const passwordField = document.getElementById('passwordField');
+        const otpField = document.getElementById('otpField');
+
+        let useOTP = false;
+
+        toggleOption.addEventListener('click', () => {
+            useOTP = !useOTP;
+
+            if (useOTP) {
+                passwordField.style.display = 'none';
+                otpField.style.display = 'block';
+                toggleOption.textContent = 'Login using Password';
+            } else {
+                passwordField.style.display = 'block';
+                otpField.style.display = 'none';
+                toggleOption.textContent = 'Login using OTP';
+            }
+        });
+
+        loginForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+
+            if (useOTP) {
+                const otp = document.getElementById('otp').value;
+                if (username === "" || otp === "") {
+                    alert("Please fill in all fields");
+                } else {
+                    alert(`Welcome, ${username}! Login via OTP successful.`);
+                }
+            } else {
+                const password = document.getElementById('password').value;
+                if (username === "" || password === "") {
+                    alert("Please fill in all fields");
+                } else {
+                    alert(`Welcome, ${username}! Login via Password successful.`);
+                }
+            }
+        });
+
+        const googleLoginButton = document.querySelector('.google-login');
+        const microsoftLoginButton = document.querySelector('.microsoft-login');
+
+        googleLoginButton.addEventListener('click', () => {
+            alert('Google login functionality is currently under development.');
+        });
+
+        microsoftLoginButton.addEventListener('click', () => {
+            alert('Microsoft login functionality is currently under development.');
+        });
+    </script>
+</body>
+</html>
