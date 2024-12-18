@@ -1,0 +1,241 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #fafafa;
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #FF5722, #FF9800);
+    padding: 10px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar .logo {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: #2c3e50;
+}
+
+/* Floating Banners */
+.floating-banners {
+    display: flex;
+    animation: floatBanner 12s linear infinite;
+    justify-content: space-between;
+    overflow: hidden;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.banner {
+    background: linear-gradient(135deg, #FFEB3B, #FF9800);
+    padding: 50px;
+    text-align: center;
+    flex: 0 0 100%;
+    flex-shrink: 0;
+    transition: transform 0.5s ease-in-out;
+    border-radius: 10px;
+}
+
+.banner h1 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.banner p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Keyframes for Floating Banners */
+@keyframes floatBanner {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(-200%);
+    }
+}
+
+/* Book Section */
+.book-section {
+    margin: 20px;
+}
+
+.book-section h2 {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.6rem;
+    color: #2c3e50;
+}
+
+.see-all {
+    text-decoration: none;
+    color: #2196f3;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.book-container {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 15px;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    padding-bottom: 15px;
+}
+
+.book-card {
+    background: #fff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.book-card img {
+    width: 100%;
+    border-radius: 8px;
+    transition: opacity 0.3s ease;
+    object-fit: cover;
+}
+
+.book-card h3 {
+    margin: 15px 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.book-card .download-btn {
+    background-color: #FF5722;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.book-card .download-btn:hover {
+    background-color: #e64a19;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.modal-content img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .floating-banners {
+        flex-direction: column;
+    }
+
+    .book-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .book-card {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .book-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .book-card .download-btn {
+        font-size: 1.1rem;
+    }
+}

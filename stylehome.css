@@ -45,15 +45,19 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
 }
 
 .navbar ul {
     list-style: none;
     display: flex;
-    justify-content: center;
     align-items: center;
     gap: 30px;
-    padding: 15px 0;
+    margin: 0;
+    padding: 0;
 }
 
 .navbar ul li a {
@@ -68,6 +72,66 @@ body {
     color: #fdb913;
     transform: scale(1.1);
 }
+
+/* Home Buttons - Positioned Left and Responsive */
+.home-buttons {
+    display: flex;
+    flex-wrap: wrap; /* Prevents overlap and wraps buttons neatly */
+    gap: 10px; /* Space between buttons */
+    margin-left: auto; /* Pushes buttons to the right */
+}
+
+.login-btn,
+.register-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem; /* Slightly smaller font for smaller screens */
+    font-weight: bold;
+    transition: all 0.3s ease;
+    color: white;
+    white-space: nowrap; /* Prevents text from wrapping */
+    flex-shrink: 0; /* Prevents buttons from shrinking too much */
+}
+
+/* Attractive Gradient for Buttons */
+.login-btn {
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    box-shadow: 0 4px 8px rgba(255, 126, 95, 0.3);
+}
+
+.register-btn {
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    box-shadow: 0 4px 8px rgba(106, 17, 203, 0.3);
+}
+
+.login-btn:hover,
+.register-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.login-btn:active,
+.register-btn:active {
+    transform: translateY(0);
+}
+
+/* Responsive Buttons for Small Screens */
+@media (max-width: 768px) {
+    .home-buttons {
+        flex-wrap: nowrap; /* Prevents vertical stacking */
+        gap: 5px; /* Reduces the gap between buttons */
+        justify-content: flex-end; /* Keeps buttons aligned to the right */
+    }
+
+    .login-btn,
+    .register-btn {
+        font-size: 0.8rem; /* Reduce font size for smaller screens */
+        padding: 6px 10px; /* Reduce button padding */
+    }
+}
+
 
 /* Header Section */
 .header {

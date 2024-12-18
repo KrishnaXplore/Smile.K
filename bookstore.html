@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstore</title>
+    <link rel="stylesheet" href="stylebookstore.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="#">All Courses</a></li>
+            <li><a href="bookstore.html">Smile:) Store Book</a></li>
+            <li><a href="#">Test</a></li>
+        </ul>
+    </nav>
+
+    <!-- Floating Banners Section -->
+    <div class="floating-banners">
+        <!-- First Banner -->
+        <div class="banner banner-1">
+            <div class="banner-content">
+                <h1>Achieve Unmatched Accuracy with PW Rankers Test Series!</h1>
+                <p>Explore the best study materials and test series for NEET, JEE, CBSE & PG Entrance Exams.</p>
+            </div>
+        </div>
+
+        <!-- Second Banner -->
+        <div class="banner banner-2">
+            <div class="banner-content">
+                <h1>Boost Your Exam Success with Our Comprehensive Resources!</h1>
+                <p>Access the best books, test series, and materials for all your exam needs!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popular Books Section with Sliding Effect -->
+    <section class="book-section">
+        <h2>Popular NEET Books <a href="#" class="see-all">See All</a></h2>
+        <div class="book-container slider">
+            <div class="book-card">
+                <img src="neet1.jpg" alt="NEET Book 1">
+                <h3>Physics NEET</h3>
+                <button class="download-btn" onclick="openModal('neet1')">Download</button>
+            </div>
+            <div class="book-card">
+                <img src="neet2.jpg" alt="NEET Book 2">
+                <h3>Chemistry NEET</h3>
+                <button class="download-btn" onclick="openModal('neet2')">Download</button>
+            </div>
+            <div class="book-card">
+                <img src="neet3.jpg" alt="NEET Book 3">
+                <h3>NEET Practice Tests</h3>
+                <button class="download-btn" onclick="openModal('neet3')">Download</button>
+            </div>
+            <div class="book-card">
+                <img src="neet4.jpg" alt="NEET Book 4">
+                <h3>NEET 37 Years Papers</h3>
+                <button class="download-btn" onclick="openModal('neet4')">Download</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="book-section">
+        <h2>Popular IIT JEE Books <a href="#" class="see-all">See All</a></h2>
+        <div class="book-container slider">
+            <div class="book-card">
+                <img src="jee1.jpg" alt="JEE Book 1">
+                <h3>JEE Advanced Physics</h3>
+                <button class="download-btn" onclick="openModal('jee1')">Download</button>
+            </div>
+            <div class="book-card">
+                <img src="jee2.jpg" alt="JEE Book 2">
+                <h3>JEE Chemistry Guide</h3>
+                <button class="download-btn" onclick="openModal('jee2')">Download</button>
+            </div>
+            <div class="book-card">
+                <img src="jee3.jpg" alt="JEE Book 3">
+                <h3>JEE Mathematics Tests</h3>
+                <button class="download-btn" onclick="openModal('jee3')">Download</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="book-section">
+        <h2>Popular CBSE Class 10 Books <a href="#" class="see-all">See All</a></h2>
+        <div class="book-container slider">
+            <div class="book-card">
+                <img src="cbse10-1.jpg" alt="CBSE Class 10 Book 1">
+                <h3>CBSE Science Papers</h3>
+                <button class="download-btn" onclick="openModal('cbse10-1')">Download</button>
+            </div>
+            <div class="book-card">
+                <img src="cbse10-2.jpg" alt="CBSE Class 10 Book 2">
+                <h3>CBSE Maths Guide</h3>
+                <button class="download-btn" onclick="openModal('cbse10-2')">Download</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="book-section">
+        <h2>Popular CBSE Class 12 Books <a href="#" class="see-all">See All</a></h2>
+        <div class="book-container slider">
+            <div class="book-card">
+                <img src="cbse12-1.jpg" alt="CBSE Class 12 Book 1">
+                <h3>Class 12 Science</h3>
+                <button class="download-btn" onclick="openModal('cbse12-1')">Download</button>
+            </div>
+            <div class="book-card">
+                <img src="cbse12-2.jpg" alt="CBSE Class 12 Book 2">
+                <h3>CBSE Maths Papers</h3>
+                <button class="download-btn" onclick="openModal('cbse12-2')">Download</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="book-section">
+        <h2>Popular PG/Govt Entrance Books <a href="#" class="see-all">See All</a></h2>
+        <div class="book-container slider">
+            <div class="book-card">
+                <img src="pg1.jpg" alt="PG Exam Book 1">
+                <h3>GATE Practice Tests</h3>
+                <button class="download-btn" onclick="openModal('pg1')">Download</button>
+            </div>
+            <div class="book-card">
+                <img src="pg2.jpg" alt="PG Exam Book 2">
+                <h3>CAT Guide</h3>
+                <button class="download-btn" onclick="openModal('pg2')">Download</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Viewing Book Details -->
+    <div class="modal" id="book-modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">×</span>
+            <h2 id="modal-title"></h2>
+            <img id="modal-img" src="" alt="Book Image">
+            <p id="modal-description">Description of the book...</p>
+            <button class="download-btn">Download</button>
+        </div>
+    </div>
+
+    <script>
+        // Modal Functionality
+        function openModal(bookId) {
+            const modal = document.getElementById('book-modal');
+            const title = document.getElementById('modal-title');
+            const img = document.getElementById('modal-img');
+            const description = document.getElementById('modal-description');
+            
+            // Set book details based on the bookId
+            switch(bookId) {
+                case 'neet1':
+                    title.textContent = 'Physics NEET';
+                    img.src = 'neet1.jpg';
+                    description.textContent = 'Physics NEET is a comprehensive study guide for NEET preparation.';
+                    break;
+                case 'neet2':
+                    title.textContent = 'Chemistry NEET';
+                    img.src = 'neet2.jpg';
+                    description.textContent = 'Chemistry NEET covers all the essential topics for NEET Chemistry.';
+                    break;
+                case 'jee1':
+                    title.textContent = 'JEE Advanced Physics';
+                    img.src = 'jee1.jpg';
+                    description.textContent = 'A complete guide for Physics in JEE Advanced.';
+                    break;
+                case 'pg1':
+                    title.textContent = 'GATE Practice Tests';
+                    img.src = 'pg1.jpg';
+                    description.textContent = 'Practice tests to help you excel in the GATE exam.';
+                    break;
+                // Add cases for other books similarly
+            }
+
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('book-modal').style.display = 'none';
+        }
+
+        // Sliding Effect for the Book Container
+        let index = 0;
+        const sliders = document.querySelectorAll('.slider');
+        sliders.forEach(slider => {
+            const cards = slider.querySelectorAll('.book-card');
+            setInterval(() => {
+                if (index < cards.length - 1) {
+                    index++;
+                } else {
+                    index = 0;
+                }
+                slider.scrollTo({
+                    left: cards[index].offsetLeft,
+                    behavior: 'smooth',
+                });
+            }, 3000); // Change every 3 seconds
+        });
+    </script>
+</body>
+</html>

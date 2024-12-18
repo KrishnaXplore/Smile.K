@@ -10,21 +10,22 @@
     <!-- Top Row -->
     <div class="top-row">
         
-        <div class="top-buttons">
-            <button class="login-btn">Login</button>
-            <button class="register-btn">Register</button>
-        </div>
+        
     </div>
 
     <!-- Navigation Bar -->
     <nav class="navbar">
         <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
             <li><a href="#">All Courses</a></li>
-            <li><a href="#">Smile:) Store Book</a></li>
+            <li><a href="bookstore.html">Smile:) Store Book</a></li>
             <li><a href="#">Test</a></li>
         </ul>
+        <div class="home-buttons">
+            <a href="login.html"><button class="login-btn">Login</button></a>
+            <a href="register.html"><button class="register-btn">Register</button></a>
+        </div>
     </nav>
 
     <!-- Header Section -->
@@ -52,6 +53,7 @@
                     <img src="student_learning.png" alt="Student Learning">
                 </div>
             </div>
+            
 
             <div class="slider-navigation">
                 <button class="prev" onclick="moveSlide(-1)">❮</button>
@@ -102,7 +104,7 @@
 
     <!-- Chatbot Widget -->
     <div class="chatbot">
-        <button id="chatbot-btn" onclick="toggleChat()">💬 Chat with Us!</button>
+    <a href="chatbot.html">  <button id="chatbot-btn" onclick="toggleChat()">💬 Chat with Us!</button> </a>
         <div id="chat-window" class="chat-window hidden">
             <iframe src="https://www.chatbot.com/embed" title="Chatbot" width="100%" height="100%"></iframe>
         </div>
@@ -126,6 +128,7 @@
             currentSlide = (currentSlide + direction + slides.length) % slides.length;
             showSlide(currentSlide);
         }
+
 
         function moveToSlide(index) {
             currentSlide = index;
